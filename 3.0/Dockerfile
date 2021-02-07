@@ -26,7 +26,5 @@ VOLUME ["$HOME/.local/share/Red-DiscordBot/data/mybot"]
 # Setting workdir
 WORKDIR $HOME/.local/share/Red-DiscordBot/data/mybot
 
-# Adding startscript and executes it
-ADD start.sh $HOME/start.sh
-RUN chmod 0755 $HOME/start.sh
-CMD ["bash", "$HOME/start.sh"]
+# Start server
+CMD ["bash", "redbot mybot"]
