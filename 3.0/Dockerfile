@@ -2,9 +2,9 @@ FROM frolvlad/alpine-bash
 
 MAINTAINER Jonas Bonno Mikkelsen (https://github.com/JonasBonno)
 
-ARG TOKEN=""
-ARG PREFIX="!"
-ARG LOAD="audio"
+ENV TOKEN=""
+ENV PREFIX="\!"
+ENV LOAD="audio"
 
 # Installing dependencies
 RUN apk update && apk add \
