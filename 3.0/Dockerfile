@@ -10,26 +10,19 @@ RUN apk update && apk add \
 	build-base && \
 	rm -rf /var/lib/apt/lists/* && \
 	wget -O - https://bootstrap.pypa.io/get-pip.py | python3 && \
-	rm -rf ~/.cache/pip/*
-
-# Create and change user to redbot
-RUN adduser --disabled-password --shell /bin/bash redbot
-USER redbot
+	rm -rf /root/.cache/pip/*
 
 # Installing Red-DiscordBot
 RUN pip3 install Red-DiscordBot
 
 # Setup redbot server
-RUN { echo "mybot"; echo "$HOME/.local/share/Red-DiscordBot/data/mybot"; echo "Y"; echo "1"; } | $HOME/.local/bin/redbot-setup
-
-# Change user back to root
-USER root
+RUN { echo "mybot"; echo "/root/.local/share/Red-DiscordBot/data/mybot"; echo "Y"; echo "1"; } | redbot-setup
 
 # Exposes volumes
-VOLUME ["/home/redbot/.local/share/Red-DiscordBot/data/mybot"]
+VOLUME ["/root/.local/share/Red-DiscordBot/data/mybot"]
 
 # Setting workdir
-WORKDIR /home/redbot/.local/share/Red-DiscordBot/data/mybot
+WORKDIR /root/.local/share/Red-DiscordBot/data/mybot
 
 # Adding startscript and executes it
 ADD start.sh /start.sh
