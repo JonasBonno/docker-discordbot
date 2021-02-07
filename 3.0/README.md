@@ -8,6 +8,7 @@ made by the Cog creators at https://github.com/Cog-Creators/Red-DiscordBot
 ### Setup
 Running Red Discord Bot data container: 
 - docker run --name [name of your data container] jonasbonno/discordbot:3.0 echo 'Data-only container'
+
 Running Red Discord Bot container: 
 - docker run --tty=true --interactive=true --detach=true --name [name of your container] --volumes-from [name of your data container] --env TOKEN="[your discord bot token]" jonasbonno/discordbot:3.0
 
