@@ -15,7 +15,7 @@ RUN apk update && apk add \
 RUN pip3 install Red-DiscordBot
 
 # Create and change user
-RUN adduser -D redbot
+RUN adduser --disabled-password --shell /bin/bash redbot
 USER redbot
 
 # Setup redbot server
