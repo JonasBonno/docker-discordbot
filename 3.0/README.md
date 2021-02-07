@@ -6,7 +6,15 @@ made by the Cog creators at https://github.com/Cog-Creators/Red-DiscordBot
 <img src="https://imgur.com/pY1WUFX.png" width="720" height="385">
 
 ### Setup
-To run container: docker run --tty=true --interactive=true --detach=true --volume=[path to data location on host]:/json jonasbonno/discordbot:3.0
+Running Red Discord Bot data container: docker run --name [name of your data container] jonasbonno/discordbot:3.0-test echo 'Data-only container'
+Running Red Discord Bot container: docker run --tty=true --interactive=true --detach=true --name [name of your container] --volumes-from [name of your data container] --env TOKEN="[your discord bot token]" jonasbonno/discordbot:3.0-test
+
+### Obtain your Discord bot token
+You can use this guide: https://docs.discord.red/en/stable/bot_application_guide.html?highlight=token#creating-the-bot-application
+
+### Environment variables
+--env TOKEN=[your discord bot token]: The Discord token the Red-DiscordBot will use.
+--env PREFIX=!: The prefix Red-DiscordBot will use. Default set to "!" if you don't specify it.
 
 To set it up on first start: 
 </br>docker attach [name of container]
