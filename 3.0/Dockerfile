@@ -18,14 +18,13 @@ RUN useradd -m -U redbot
 USER redbot
 
 # Installing Red-DiscordBot
-RUN pip3 install Red-DiscordBot && \
-	{ echo "redbot"; echo "\n"; echo "Y"; echo "1"; } | redbot-setup
+RUN pip3 install Red-DiscordBot && mkdir -p $HOME/.local/share/Red-DiscordBot/data/mybot
 
 # Exposes volumes
-VOLUME ["$HOME/.local/share/Red-DiscordBot/data/redbot"]
+VOLUME ["$HOME/.local/share/Red-DiscordBot/data/mybot"]
 
 # Setting workdir
-WORKDIR $HOME/.local/share/Red-DiscordBot/data/redbot
+WORKDIR $HOME/.local/share/Red-DiscordBot/data/mybot
 
 # Adding startscript and executes it
 ADD start.sh $HOME/start.sh
