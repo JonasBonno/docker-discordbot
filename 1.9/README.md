@@ -5,6 +5,8 @@ made by the Cog creators at https://github.com/Cog-Creators/Red-DiscordBot
 #### *Music, Moderation, Trivia, Stream Alerts and Fully Modular*  
 <img src="https://imgur.com/pY1WUFX.png" width="720" height="385">
 
+### Setup
+
 To run container: docker run --tty=true --interactive=true --detach=true --volume=[path to data location on host]:/json jonasbonno/discordbot:1.9
 
 To set it up on first start: 
