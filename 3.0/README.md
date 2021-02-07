@@ -2,6 +2,8 @@
 Red Discord Bot
 made by the Cog creators at https://github.com/Cog-Creators/Red-DiscordBot
 
+NOTE: Server config reset is required when upgrading from v1 to v3.0 or higher.
+
 #### *Music, Moderation, Trivia, Stream Alerts and Fully Modular*  
 <img src="https://imgur.com/pY1WUFX.png" width="720" height="385">
 
