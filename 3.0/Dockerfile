@@ -9,23 +9,29 @@ RUN apk update && apk add \
 	openjdk11-jre-headless \
 	build-base && \
 	rm -rf /var/lib/apt/lists/* && \
-	wget -O - https://bootstrap.pypa.io/get-pip.py | python3
+	wget -O - https://bootstrap.pypa.io/get-pip.py | python3 && \
+	rm -rf ~/.cache/pip/*
 	
 # Installing Red-DiscordBot
 RUN pip3 install Red-DiscordBot
 
-# Create and change user
+# Create and change user to redbot
 RUN adduser --disabled-password --shell /bin/bash redbot
 USER redbot
 
 # Setup redbot server
-RUN { echo "mybot"; echo "$HOME/.local/share/Red-DiscordBot/data/mybot"; echo "Y"; echo "1"; } | redbot-setup
+RUN { echo "mybot"; echo "~/.local/share/Red-DiscordBot/data/mybot"; echo "Y"; echo "1"; } | redbot-setup
 
 # Exposes volumes
-VOLUME ["$HOME/.local/share/Red-DiscordBot/data/mybot"]
+VOLUME ["/home/redbot/.local/share/Red-DiscordBot/data/mybot"]
 
 # Setting workdir
-WORKDIR $HOME/.local/share/Red-DiscordBot/data/mybot
+WORKDIR /home/redbot/.local/share/Red-DiscordBot/data/mybot
 
-# Start server
-CMD ["redbot", "mybot"]
+# Change user backup to root
+USER root
+
+# Adding startscript and executes it
+ADD start.sh /start.sh
+RUN chmod 0755 /start.sh
+CMD ["bash", "/start.sh"]
