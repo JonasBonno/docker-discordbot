@@ -12,7 +12,7 @@ Running Red Discord Bot data container:
 - docker run --name [name of your data container] jonasbonno/discordbot:3.0 echo 'Data-only container'
 
 Running Red Discord Bot container: 
-- docker run --tty=true --interactive=true --detach=true --name [name of your container] --volumes-from [name of your data container] --env TOKEN="[your discord bot token]" jonasbonno/discordbot:3.0
+- docker run --tty=true --interactive=true --detach=true --restart unless-stopped --name [name of your container] --volumes-from [name of your data container] --env TOKEN="[your discord bot token]" jonasbonno/discordbot:3.0
 
 ### Obtain your Discord bot token
 You can use this guide: https://docs.discord.red/en/stable/bot_application_guide.html?highlight=token#creating-the-bot-application
