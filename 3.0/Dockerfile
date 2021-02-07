@@ -11,13 +11,13 @@ RUN apk update && apk add \
 	rm -rf /var/lib/apt/lists/* && \
 	wget -O - https://bootstrap.pypa.io/get-pip.py | python3 && \
 	rm -rf ~/.cache/pip/*
-	
-# Installing Red-DiscordBot
-RUN pip3 install Red-DiscordBot
 
 # Create and change user to redbot
 RUN adduser --disabled-password --shell /bin/bash redbot
 USER redbot
+
+# Installing Red-DiscordBot
+RUN pip3 install Red-DiscordBot
 
 # Setup redbot server
 RUN { echo "mybot"; echo "$HOME/.local/share/Red-DiscordBot/data/mybot"; echo "Y"; echo "1"; } | redbot-setup
