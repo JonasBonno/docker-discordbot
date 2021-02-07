@@ -22,6 +22,7 @@ You can use this guide: https://docs.discord.red/en/stable/bot_application_guide
 ### On first start
 - Grant the bot privileged intents: https://docs.discord.red/en/stable/bot_application_guide.html?highlight=token#enabling-privileged-intents
 - Accept "Invite URL", run command to show it: docker logs [name of your container]
+- Set bot permissions: https://docs.discord.red/en/stable/getting_started.html?highlight=moderator#administrator
 
 ### Overview
 Red is a fully modular bot – meaning all features and commands can be enabled/disabled to your liking, making it completely customizable. This is a self-hosted bot – meaning you will need to host and maintain your own instance. You can turn Red into an admin bot, music bot, trivia bot, new best friend or all of these together!
