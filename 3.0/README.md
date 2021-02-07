@@ -16,12 +16,12 @@ Running Red Discord Bot container:
 You can use this guide: https://docs.discord.red/en/stable/bot_application_guide.html?highlight=token#creating-the-bot-application
 
 ### Environment variables
---env TOKEN=[your discord bot token]: The Discord token the Red-DiscordBot will use.
-</br>--env PREFIX=!: The prefix Red-DiscordBot will use. Default set to "!" if you don't specify it.
+--env TOKEN=[your discord bot token] - The Discord token the Red-DiscordBot will use.
+</br>--env PREFIX=! - The prefix Red-DiscordBot will use. Default set to "!" if you don't specify it.
 
 ### On first start
 - Grant the bot privileged intents: https://docs.discord.red/en/stable/bot_application_guide.html?highlight=token#enabling-privileged-intents
-- Accept "Invite URL": docker logs [name of your container]
+- Accept "Invite URL", run command to show it: docker logs [name of your container]
 
 ### Overview
 Red is a fully modular bot – meaning all features and commands can be enabled/disabled to your liking, making it completely customizable. This is a self-hosted bot – meaning you will need to host and maintain your own instance. You can turn Red into an admin bot, music bot, trivia bot, new best friend or all of these together!
