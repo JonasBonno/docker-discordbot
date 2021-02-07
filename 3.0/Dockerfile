@@ -13,12 +13,15 @@ RUN apk update && apk add \
 # Installing PIP
 RUN wget -O - https://bootstrap.pypa.io/get-pip.py | python3
 
+# Installing Red-DiscordBot
+RUN pip3 install Red-DiscordBot
+
 # Create and change user
 RUN adduser -D redbot
 USER redbot
 
-# Installing Red-DiscordBot
-RUN pip3 install Red-DiscordBot && { echo "mybot"; echo "$HOME/.local/share/Red-DiscordBot/data/mybot"; echo "Y"; echo "1"; } | redbot-setup
+# Setup redbot server
+RUN { echo "mybot"; echo "$HOME/.local/share/Red-DiscordBot/data/mybot"; echo "Y"; echo "1"; } | redbot-setup
 
 # Exposes volumes
 VOLUME ["$HOME/.local/share/Red-DiscordBot/data/mybot"]
