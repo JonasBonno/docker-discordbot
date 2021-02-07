@@ -18,7 +18,7 @@ RUN useradd -m -U redbot
 USER redbot
 
 # Installing Red-DiscordBot
-RUN pip3 install Red-DiscordBot && mkdir -p $HOME/.local/share/Red-DiscordBot/data/mybot
+RUN pip3 install Red-DiscordBot && { echo "mybot"; echo "$HOME/.local/share/Red-DiscordBot/data/mybot"; echo "Y"; echo "1"; } | redbot-setup
 
 # Exposes volumes
 VOLUME ["$HOME/.local/share/Red-DiscordBot/data/mybot"]
