@@ -21,8 +21,8 @@ RUN pip3 install --upgrade pip
 RUN pip3 install \
 	imgurpython \
 	youtube_dl
-RUN pip3 install -U git+https://github.com/Rapptz/discord.py@master\#egg=discord.py[voice] 
-RUN git clone -b develop --single-branch https://github.com/Twentysix26/Red-DiscordBot.git /root/Red-DiscordBot
+RUN pip3 install -U git+https://github.com/Rapptz/discord.py[voice] 
+RUN git clone -b develop --single-branch https://github.com/Cog-Creators/Red-DiscordBot.git /root/Red-DiscordBot
 
 # Exposes volumes
 VOLUME ["/root/Red-DiscordBot"]
