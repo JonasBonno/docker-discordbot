@@ -3,7 +3,7 @@ FROM frolvlad/alpine-bash
 MAINTAINER Jonas Bonno Mikkelsen (https://github.com/JonasBonno)
 
 ENV TOKEN=""
-ENV PREFIX="\!"
+ENV PREFIX="!"
 ENV LOAD="audio"
 
 # Installing dependencies
