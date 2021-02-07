@@ -14,7 +14,7 @@ RUN apk update && apk add \
 RUN wget -O - https://bootstrap.pypa.io/get-pip.py | python3
 
 # Create and change user
-RUN useradd -m -U redbot
+RUN adduser -D redbot
 USER redbot
 
 # Installing Red-DiscordBot
