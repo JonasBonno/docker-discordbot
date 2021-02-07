@@ -9,4 +9,4 @@ su -s /bin/bash -c "pip3 install --upgrade pip Red-DiscordBot" -m "redbot"
 su -s /bin/bash -c "&& rm -rf ~/.cache/pip/*" -m "redbot"
 
 # Start server as redbot user
-su -s /bin/bash -c "redbot mybot" -m "redbot"
+su -s /bin/bash -c "~/.local/bin/redbot mybot" -m "redbot"
