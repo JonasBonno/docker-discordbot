@@ -4,7 +4,6 @@ MAINTAINER Jonas Bonno Mikkelsen (https://github.com/JonasBonno)
 
 ENV TOKEN=""
 ENV PREFIX="!"
-ENV LOAD="audio"
 
 # Installing dependencies
 RUN apk update && apk add \
