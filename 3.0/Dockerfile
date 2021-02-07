@@ -20,7 +20,7 @@ USER redbot
 RUN pip3 install Red-DiscordBot
 
 # Setup redbot server
-RUN { echo "mybot"; echo "$HOME/.local/share/Red-DiscordBot/data/mybot"; echo "Y"; echo "1"; } | redbot-setup
+RUN { echo "mybot"; echo "$HOME/.local/share/Red-DiscordBot/data/mybot"; echo "Y"; echo "1"; } | $HOME/.local/bin/redbot-setup
 
 # Change user back to root
 USER root
