@@ -5,4 +5,4 @@ apk update
 pip3 install --upgrade pip Red-DiscordBot
 
 # Start server
-redbot mybot --token $TOKEN --prefix $PREFIX --load-cogs $LOAD
+redbot mybot --token $TOKEN --prefix $PREFIX
