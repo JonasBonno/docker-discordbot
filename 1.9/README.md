@@ -3,7 +3,7 @@ A multifunction Discord bot
 made by the Cog Creators at https://github.com/Cog-Creators/Red-DiscordBot
 
 #### *Fun bringer, admin helper and music bot*  
-[<img align="right" title="Red - Discord Bot" src="https://imgur.com/pY1WUFX.png">](https://github.com/Cog-Creators/Red-DiscordBot)
+[<img align="right" title="Red - Discord Bot" src="https://imgur.com/pY1WUFX.png" width="720" height="385">](https://github.com/Cog-Creators/Red-DiscordBot)
 
 To run container: docker run --tty=true --interactive=true --detach=true --volume=[path to data location on host]:/json jonasbonno/discordbot:1.9
 
