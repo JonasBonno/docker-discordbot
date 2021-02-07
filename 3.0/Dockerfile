@@ -20,16 +20,16 @@ RUN adduser --disabled-password --shell /bin/bash redbot
 USER redbot
 
 # Setup redbot server
-RUN { echo "mybot"; echo "~/.local/share/Red-DiscordBot/data/mybot"; echo "Y"; echo "1"; } | redbot-setup
+RUN { echo "mybot"; echo "$HOME/.local/share/Red-DiscordBot/data/mybot"; echo "Y"; echo "1"; } | redbot-setup
+
+# Change user backup to root
+USER root
 
 # Exposes volumes
 VOLUME ["/home/redbot/.local/share/Red-DiscordBot/data/mybot"]
 
 # Setting workdir
 WORKDIR /home/redbot/.local/share/Red-DiscordBot/data/mybot
-
-# Change user backup to root
-USER root
 
 # Adding startscript and executes it
 ADD start.sh /start.sh
