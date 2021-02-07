@@ -22,7 +22,7 @@ USER redbot
 # Setup redbot server
 RUN { echo "mybot"; echo "$HOME/.local/share/Red-DiscordBot/data/mybot"; echo "Y"; echo "1"; } | redbot-setup
 
-# Change user backup to root
+# Change user back to root
 USER root
 
 # Exposes volumes
