@@ -7,7 +7,7 @@ ENV PREFIX="!"
 
 # Installing dependencies
 RUN apk update && \
-	apk add --no-cache bash bash gawk sed grep bc coreutils git python3-dev openjdk11-jre-headless build-base libffi-dev && \
+	apk add --no-cache bash gawk sed grep bc coreutils git python3-dev openjdk11-jre-headless build-base libffi-dev && \
 	rm -rf /var/lib/apt/lists/* && \
 	wget -O - https://bootstrap.pypa.io/get-pip.py | python3 && \
 	rm -rf /root/.cache/pip/*
