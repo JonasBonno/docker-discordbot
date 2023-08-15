@@ -1,4 +1,4 @@
-# discordbot - latest
+# discordbot
 Red Discord Bot
 made by the Cog creators at https://github.com/Cog-Creators/Red-DiscordBot
 
