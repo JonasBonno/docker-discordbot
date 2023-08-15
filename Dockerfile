@@ -1,4 +1,4 @@
-FROM alpine:3.15
+FROM alpine:3.18
 
 MAINTAINER Jonas Bonno Mikkelsen (https://github.com/JonasBonno)
 
@@ -7,7 +7,7 @@ ENV PREFIX="!"
 
 # Installing dependencies
 RUN apk update && \
-	apk add --no-cache bash gawk sed grep bc coreutils git python3-dev openjdk11-jre-headless build-base libffi-dev && \
+	apk add --no-cache bash gawk sed grep bc gcompat coreutils git python3-dev openjdk11-jre-headless build-base libffi-dev && \
 	wget -O - https://bootstrap.pypa.io/get-pip.py | python3 && \
 	rm -rf /root/.cache/pip/*
 
