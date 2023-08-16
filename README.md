@@ -26,6 +26,14 @@ You can use this guide: https://docs.discord.red/en/stable/bot_application_guide
 - Accept "Invite URL", run command to show it: docker logs [name of your container]
 - Set bot permissions: https://docs.discord.red/en/stable/getting_started.html?highlight=moderator%20Administrator#administrator
 
+### Upgrading container
+The container is created with a volume exposed that is able to be mounted elsewhere containing the Red Discord Bot data folder so when running the two containers as described in the setup-section upgrading is done simply by creating a new docker container:
+- <code>docker stop [name of your CURRENT container]</code>
+- <code>docker image pull jonasbonno/discordbot</code>
+- <code>docker run --tty=true --interactive=true --detach=true --restart unless-stopped --name [name of your NEW container] --volumes-from [name of your CURRENT data container] --env TOKEN="[your discord bot token]" jonasbonno/discordbot</code>
+
+After verifying the upgrade succeeded you can safely delete the old container with the following command: <code>docker container rm [name of your OLD container]</code>
+
 ### Overview
 Red is a fully modular bot – meaning all features and commands can be enabled/disabled to your liking, making it completely customizable. This is a self-hosted bot – meaning you will need to host and maintain your own instance. You can turn Red into an admin bot, music bot, trivia bot, new best friend or all of these together!
 
