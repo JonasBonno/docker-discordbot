@@ -1,29 +1,37 @@
-FROM alpine:3.21
+FROM alpine:3.19
 
 MAINTAINER Jonas Bonno Mikkelsen (https://github.com/JonasBonno)
 
 ENV TOKEN=""
 ENV PREFIX="!"
 
+# Create redbot user
+RUN addgroup redbot && adduser -D redbot -G redbot
+
 # Installing dependencies
 RUN apk update && \
-	apk add --no-cache bash gawk sed grep bc gcompat coreutils git python3-dev openjdk11-jre-headless build-base libffi-dev && \
-	wget -O - https://bootstrap.pypa.io/get-pip.py | python3 && \
-	rm -rf /root/.cache/pip/*
+        apk add --no-cache bash gawk sed grep bc gcompat coreutils git python3-dev py3-pip openjdk11-jre-headless build-base libffi-dev && \
+        rm -rf /root/.cache/pip/*
+
+ADD start.sh /home/redbot/start.sh
+RUN chown redbot:redbot /home/redbot/start.sh && \
+        chmod +x /home/redbot/start.sh
 
 # Installing Red-DiscordBot
-RUN pip3 install Red-DiscordBot
+USER redbot
+RUN mkdir -p ~/.local/share/Red-Discord && \
+        python3 -m venv ~/.local/share/Red-DiscordBot/redenv && \
+        source ~/.local/share/Red-DiscordBot/redenv/bin/activate && \
+        python -m pip install -U pip wheel git+https://github.com/Cog-Creators/Red-DiscordBot.git
 
 # Setup redbot server
-RUN { echo "mybot"; echo "/root/.local/share/Red-DiscordBot/data/mybot"; echo "Y"; echo "1"; } | redbot-setup
+RUN ~/.local/share/Red-DiscordBot/redenv/bin/redbot-setup --no-prompt --instance-name mybot
 
 # Exposes volumes
-VOLUME ["/root/.local/share/Red-DiscordBot/data/mybot"]
+VOLUME ["/home/redbot/.local/share/Red-DiscordBot/data/mybot"]
 
 # Setting workdir
-WORKDIR /root/.local/share/Red-DiscordBot/data/mybot
+WORKDIR /home/redbot/.local/share/Red-DiscordBot/data/mybot
 
-# Adding startscript and executes it
-ADD start.sh /start.sh
-RUN chmod 0755 /start.sh
-CMD ["bash", "/start.sh"]
+# Setting default command
+CMD ["bash", "/home/redbot/start.sh"]
