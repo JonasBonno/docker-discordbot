@@ -1,4 +1,4 @@
-FROM alpine:3.18
+FROM alpine:3.21
 
 MAINTAINER Jonas Bonno Mikkelsen (https://github.com/JonasBonno)
 
