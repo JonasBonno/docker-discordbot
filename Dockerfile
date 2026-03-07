@@ -1,4 +1,4 @@
-FROM alpine:3.19
+FROM python:3.11-alpine
 
 MAINTAINER Jonas Bonno Mikkelsen (https://github.com/JonasBonno)
 
@@ -10,7 +10,7 @@ RUN addgroup redbot && adduser -D redbot -G redbot
 
 # Installing dependencies
 RUN apk update && \
-        apk add --no-cache bash gawk sed grep bc gcompat coreutils git python3-dev py3-pip openjdk11-jre-headless build-base libffi-dev && \
+        apk add --no-cache bash gawk sed grep bc gcompat coreutils git openjdk17-jre-headless build-base libffi-dev && \
         rm -rf /root/.cache/pip/*
 
 ADD start.sh /home/redbot/start.sh
@@ -22,6 +22,7 @@ USER redbot
 RUN mkdir -p ~/.local/share/Red-Discord && \
         python3 -m venv ~/.local/share/Red-DiscordBot/redenv && \
         source ~/.local/share/Red-DiscordBot/redenv/bin/activate && \
+	pip install --upgrade pip && \
         python -m pip install -U pip wheel git+https://github.com/Cog-Creators/Red-DiscordBot.git
 
 # Setup redbot server
